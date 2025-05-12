@@ -1,0 +1,40 @@
+package com.example.spendsmart
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class GoalActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_goal)
+
+        val etGoalAmount = findViewById<EditText>(R.id.etGoalAmount)
+        val etGoalDesc = findViewById<EditText>(R.id.etGoalDesc)
+        val btnSetGoal = findViewById<Button>(R.id.btnSetGoal)
+       btnSetGoal.setOnClickListener {
+            val amt = etGoalAmount.text.toString().trim()
+            val desc = etGoalDesc.text.toString().trim()
+            Toast.makeText(this, "Goal '$desc' of R$amt set", Toast.LENGTH_SHORT).show()
+        }
+    }
+}
+
+activity_goal.xml:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="24dp">
+
+    <EditText android:id="@+id/etGoalAmount" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:hint="Goal Amount" android:inputType="number"/>
+
+    <EditText android:id="@+id/etGoalDesc" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:hint="Goal Description"/>
+
+    <Button android:id="@+id/btnSetGoal" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Set Goal"/>
+</LinearLayout>   
