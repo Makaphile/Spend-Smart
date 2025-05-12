@@ -1,0 +1,4 @@
+<activity android:name=".DashboardActivity" />
+<activity android:name=".CategoryActivity" />
+<activity android:name=".ExpenseActivity" />
+<activity android:name=".GoalActivity" />
