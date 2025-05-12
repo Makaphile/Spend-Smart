@@ -1,0 +1,36 @@
+package com.example.spendsmart
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
+class CategoryActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_category)
+
+        val categoryName = findViewById<EditText>(R.id.etCategoryName)
+        val btnSave = findViewById<Button>(R.id.btnSaveCategory)
+
+        btnSave.setOnClickListener {
+            val name = categoryName.text.toString().trim()
+            Toast.makeText(this, "Category '$name' saved", Toast.LENGTH_SHORT).show()
+        }
+    }
+}
+
+activity_category.xml:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="24dp">
+
+    <EditText android:id="@+id/etCategoryName" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:hint="Enter Category"/>
+
+    <Button android:id="@+id/btnSaveCategory" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Save Category"/>
+</LinearLayout>
